@@ -1,0 +1,125 @@
+<form [formGroup]="ticketForm">
+  <div class="card">
+    <h5 class="card-header">Add ticket</h5>
+    <div class="card-body">
+      <h5 class="card-title">thanks for fulfilling ticket fields</h5>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Depart</label>
+          <select
+            id="inputState"
+            class="form-select"
+            required
+            formControlName="depart"
+            [class.is-invalid]="
+              ticketForm.get('depart')?.invalid &&
+              ticketForm.get('depart')?.touched
+            "
+          >
+            <option selected>Choose...</option>
+            <option *ngFor="let c of cities" value="{{ c?.value }}">
+              {{ c?.label }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Arrive</label>
+          <select
+            id="inputState"
+            class="form-select"
+            formControlName="arrive"
+            [class.is-invalid]="
+              ticketForm.get('arrive')?.invalid &&
+              ticketForm.get('arrive')?.touched
+            "
+          >
+            <option selected>Choose...</option>
+            <option selected>Choose...</option>
+            <option *ngFor="let c of cities" value="{{ c?.value }}">
+              {{ c?.label }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <div class="field col-12 md:col-4">
+            <label for="">Start</label>
+            <p-calendar
+              inputId="calendar"
+              class="ng-invalid ng-dirty"
+              [showIcon]="true"
+              placeholder="Calendar"
+              formControlName="start"
+              [class.is-invalid]="
+                ticketForm.get('start')?.invalid &&
+                ticketForm.get('start')?.touched
+              "
+            ></p-calendar>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="field col-12 md:col-4">
+            <label for="">End</label>
+            <p-calendar
+              inputId="calendar"
+              class="ng-invalid ng-dirty"
+              [showIcon]="true"
+              placeholder="Calendar"
+              formControlName="end"
+              [class.is-invalid]="
+                ticketForm.get('end')?.invalid && ticketForm.get('end')?.touched
+              "
+            ></p-calendar>
+          </div>
+        </div>
+        <div class="col-12">
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="name"
+            aria-label="name"
+            formControlName="name"
+            [class.is-invalid]="
+              ticketForm.get('name')?.invalid && ticketForm.get('name')?.touched
+            "
+          />
+        </div>
+        <div class="col-12">
+          <label>Prix</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Prix"
+            aria-label="Prix"
+            formControlName="prix"
+            [class.is-invalid]="
+              ticketForm.get('prix')?.invalid && ticketForm.get('prix')?.touched
+            "
+          />
+        </div>
+        <div class="col-12">
+          <label>Categorie</label>
+
+          <select
+            id="inputState"
+            class="form-select"
+            formControlName="categorie"
+            [class.is-invalid]="
+              ticketForm.get('categorie')?.invalid &&
+              ticketForm.get('categorie')?.touched
+            "
+          >
+            <option selected>Choose...</option>
+            <option value="Business">Business</option>
+            <option value="Economie">Economie</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer text-muted justify-content-center">
+      <a class="btn btn-success" (click)="addticketPlan()">Ok</a>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,120 @@
+<p-toast></p-toast>
+
+<div class="card">
+  <p-toolbar styleClass="">
+    <ng-template pTemplate="left">
+      <button
+        pButton
+        pRipple
+        icon="pi pi-plus"
+        class="p-button-success mr-2 p-button-outlined me-2"
+        (click)="openNew()"
+      ></button>
+      <button
+        pButton
+        pRipple
+        icon="pi pi-trash"
+        class="p-button-danger p-button-outlined"
+        (click)="deleteSelectedClient()"
+        [disabled]="!selectedClient || !selectedClient.length"
+      ></button>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+      <button
+        pButton
+        pRipple
+        label="Import"
+        icon="pi pi-download"
+        class="p-button-secondary p-button-outlined me-2"
+      ></button>
+
+      <button
+        pButton
+        pRipple
+        label="Export"
+        icon="pi pi-upload"
+        class="p-button-secondary p-button-outlined"
+      ></button>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+    #dt
+    [value]="Clients"
+    [rows]="10"
+    [paginator]="true"
+    [globalFilterFields]="['name', 'adress']"
+    responsiveLayout="scroll"
+    [(selection)]="selectedClient"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h5 class="m-0">Manage Client</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search..."
+          />
+        </span>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3rem">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th pSortableColumn="name">
+          Name <p-sortIcon field="name"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="adress">
+          Adress <p-sortIcon field="adress"></p-sortIcon>
+        </th>
+
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cl>
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="cl"></p-tableCheckbox>
+        </td>
+        <td>{{ cl.name }}</td>
+        <td>{{ cl.adress }}</td>
+
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success me-3 p-button-outlined mr-2"
+            (click)="editeClient(cl)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning p-button-outlined"
+            (click)="deleteClient(cl)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        In total there are {{ Clients ? Clients.length : 0 }} ticket reservation
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

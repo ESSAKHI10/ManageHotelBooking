@@ -1,0 +1,102 @@
+<form [formGroup]="addClientForm">
+  <div class="card text-center">
+    <div class="card-header">
+      Add new Client
+      <h5 class="card-title">Client information</h5>
+      <p class="card-text">thanks for fulffiling those fields</p>
+    </div>
+    <div class="card-body">
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Name</label>
+        <input
+          type="Name"
+          class="form-control"
+          id="inputEmail4"
+          formControlName="name"
+          value="{{ clientEdite?.name }}"
+          required
+          [class.is-invalid]="
+            addClientForm.get('name')?.invalid &&
+            addClientForm.get('name')?.touched
+          "
+        />
+
+        <div
+          *ngIf="
+            (addClientForm.get('name')?.invalid &&
+              addClientForm.get('name')?.touched) ||
+            addClientForm.get('name')?.dirty
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="addClientForm.get('name')?.errors?.['required']"
+            >name is required</small
+          >
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Adress</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputPassword4"
+          value="{{ clientEdite?.adress }}"
+          formControlName="adress"
+          required
+          [class.is-invalid]="
+            addClientForm.get('adress')?.invalid &&
+            addClientForm.get('adress')?.touched
+          "
+        />
+
+        <div
+          *ngIf="
+            (addClientForm.get('adress')?.invalid &&
+              addClientForm.get('adress')?.touched) ||
+            addClientForm.get('adress')?.dirty
+          "
+        >
+          <small
+            class="text-danger"
+            *ngIf="addClientForm.get('adress')?.errors?.['required']"
+            >adress address is required</small
+          >
+        </div>
+      </div>
+      <div class="col-12">
+        <label>ticket Plan</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'custom placeholder'"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          formControlName="ticketPlan"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          [class.is-invalid]="
+            addClientForm.get('ticketPlan')?.invalid &&
+            addClientForm.get('ticketPlan')?.touched
+          "
+        >
+        </ng-multiselect-dropdown>
+      </div>
+      <div class="col-12">
+        <label for="inputAddress2" class="form-label">Address 2</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputAddress2"
+          placeholder="Apartment, studio, or floor"
+        />
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="col-12">
+        <button type="submit" (click)="submiteClient()" class="btn btn-primary">
+          Sign in
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

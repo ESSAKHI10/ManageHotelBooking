@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Geston de reservation d'Hotel </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="nav-link px-0 align-middle"
+            [routerLink]="[
+              '/home',
+              {
+                outlets: {
+                  'ticket-list': ['ticket-list']
+                }
+              }
+            ]"
+          >
+            <i class="fs-4"></i>
+            <span class="ms-1 d-none d-sm-inline">Liste ticket</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="[
+              '/home',
+              {
+                outlets: {
+                  'ticket-list': ['client-list']
+                }
+              }
+            ]"
+          >
+            <i class="fs-4"></i>
+            <span class="ms-1 d-none d-sm-inline">Client</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="[
+              '/home',
+              {
+                outlets: {
+                  'ticket-list': ['hotelBooking-list']
+                }
+              }
+            ]"
+          >
+            <i class="fs-4 bi-palette2"></i>
+            <span class="ms-1 d-none d-sm-inline">Hotel booking</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="d-flex justify-content-center pt-5">
+  <h5>Liste des clients</h5>
+</div>
+<router-outlet name="ticket-list"></router-outlet>
+<router-outlet name="client-list"></router-outlet>
