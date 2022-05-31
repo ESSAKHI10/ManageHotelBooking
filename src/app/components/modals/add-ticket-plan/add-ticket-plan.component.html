@@ -1,8 +1,15 @@
 <form [formGroup]="ticketForm">
-  <div class="card">
-    <h5 class="card-header">Add ticket</h5>
-    <div class="card-body">
-      <h5 class="card-title">thanks for fulfilling ticket fields</h5>
+  <div class="card d-flex">
+    <div
+      class="card-header d-flex justify-content-center "
+      style="background-color: #1ca55c"
+    >
+      <h4 class="mt-2">ticket</h4>
+    </div>
+
+    <div class="card-body ">
+    <div class="d-flex justify-content-center"><h5 class="card-title">thanks for fulfilling ticket fields</h5></div>
+      
 
       <div class="row g-3">
         <div class="col-md-6">
@@ -118,7 +125,7 @@
       </div>
     </div>
 
-    <div class="card-footer text-muted justify-content-center">
+    <div class="card-footer d-flex justify-content-center">
       <a class="btn btn-success" (click)="addticketPlan()">Ok</a>
     </div>
   </div>

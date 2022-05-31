@@ -5,13 +5,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ListClientComponent } from './components/home/client/list-client/list-client.component';
+import { LandingPageComponent } from './components/home/landing-page/landing-page.component';
 
 const routes: Routes = [
-{path:'', redirectTo:'/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
     component: HomeComponent,
     children: [
+      {
+        path: '',
+        outlet: '',
+        component: LandingPageComponent,
+      },
       {
         path: 'ticket-list',
         outlet: 'ticket-list',

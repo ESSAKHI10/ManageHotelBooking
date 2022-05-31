@@ -37,7 +37,7 @@ export class AddHotelBookingComponent implements OnInit {
         nombreNuit: [this.hotelBookingEdite?.nombreNuit, Validators.required],
         roomType: [this.hotelBookingEdite?.roomType, Validators.required],
         smooking: [this.hotelBookingEdite?.smooking, Validators.required],
-        satrt: [this.hotelBookingEdite?.start, Validators.required],
+        start: [this.hotelBookingEdite?.start, Validators.required],
         end: [this.hotelBookingEdite?.end, Validators.required],
       });
     }
@@ -48,9 +48,25 @@ export class AddHotelBookingComponent implements OnInit {
         this.hotelBookForm.value,
         this.hotelBookingEdite.id
       );
+      this.hotelBookForm = this.formBuilder.group({
+        roomNumber: ['', Validators.required],
+        nombreNuit: ['', Validators.required],
+        roomType: ['', Validators.required],
+        smooking: ['', Validators.required],
+        start: ['', Validators.required],
+        end: ['', Validators.required],
+      });
     } else {
       console.log(this.hotelBookForm.value);
       this.hotelbookingService.createHotelBooking(this.hotelBookForm.value);
+      this.hotelBookForm = this.formBuilder.group({
+        roomNumber: ['', Validators.required],
+        nombreNuit: ['', Validators.required],
+        roomType: ['', Validators.required],
+        smooking: ['', Validators.required],
+        start: ['', Validators.required],
+        end: ['', Validators.required],
+      });
     }
   }
 }

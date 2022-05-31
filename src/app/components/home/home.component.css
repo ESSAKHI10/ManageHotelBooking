@@ -1,0 +1,10 @@
+.hero-header{
+    background-image: url(../../../assets/img/illustrations/hero-header.png);
+}
+
+ 
+ngb-modal-backdrop.modal-backdrop.fade.show {
+   
+    opacity: 0 !important;
+    background-color: aqua !important;
+}

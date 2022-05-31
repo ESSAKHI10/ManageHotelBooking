@@ -1,0 +1,10 @@
+.modal-backdrop.fade {
+    opacity: 0px !important;
+}
+.modal-backdrop.show {
+    opacity: 0px !important;
+}
+ngb-modal-backdrop.modal-backdrop.fade.show {
+   
+    opacity: 0px !important;
+}

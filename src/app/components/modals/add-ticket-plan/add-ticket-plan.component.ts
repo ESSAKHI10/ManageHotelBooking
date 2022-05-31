@@ -12,6 +12,14 @@ import { PlanTicketService } from 'src/app/services/planTicket/plan-ticket.servi
   selector: 'app-add-ticket-plan',
   templateUrl: './add-ticket-plan.component.html',
   styleUrls: ['./add-ticket-plan.component.css'],
+  styles: [
+    `
+      .modal-backdrop.show {
+        opacity: 0px !important;
+        z-index: 0px !important;
+      }
+    `,
+  ],
 })
 export class AddTicketPlanComponent implements OnInit {
   cities = [

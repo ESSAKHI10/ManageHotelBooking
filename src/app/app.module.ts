@@ -38,6 +38,7 @@ import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { HttpClientModule } from '@angular/common/http';
+import { LandingPageComponent } from './components/home/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     AddHotelBookingComponent,
     ListPlanTicketComponent,
     HotelBookingComponent,
+    LandingPageComponent,
   ],
   imports: [
     FormsModule,

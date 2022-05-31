@@ -87,11 +87,23 @@ export class AddClientComponent implements OnInit {
         this.addClientForm.value,
         this.clientEdite?.id
       );
+
+      this.addClientForm = this.formBuilder.group({
+        name: ['', Validators.required],
+        adress: ['', Validators.required],
+        ticketPlan: ['', Validators.required],
+      });
+
     } else {
       console.log('add client');
       console.log(this.addClientForm.value);
 
       this.clientService.createClient(this.addClientForm.value);
+      this.addClientForm = this.formBuilder.group({
+        name: ['', Validators.required],
+        adress: ['', Validators.required],
+        ticketPlan: ['', Validators.required],
+      });
     }
   }
   onItemSelect(item: any) {

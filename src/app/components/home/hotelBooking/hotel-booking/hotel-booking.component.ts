@@ -53,7 +53,28 @@ export class HotelBookingComponent implements OnInit {
     });
   }
 
-  deleteSelectedProducts() {}
+  deleteSelectedProducts() {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete the selected products?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        if (this.selectedHotelBooking) {
+          for (var hb of this.selectedHotelBooking) {
+            this.servcieHotelBooking.deleteHotelBooking(hb);
+          }
+        }
+
+        this.selectedHotelBooking = [];
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Products Deleted',
+          life: 3000,
+        });
+      },
+    });
+  }
 
   deleteHotelBooking(hotelBooking: HotelBooking) {
     this.confirmationService.confirm({

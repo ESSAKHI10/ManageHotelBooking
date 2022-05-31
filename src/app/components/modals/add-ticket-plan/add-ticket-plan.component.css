@@ -1,0 +1,11 @@
+.modal-backdrop.fade {
+    opacity: 0 !important;
+}
+.modal-backdrop.show {
+    opacity: 0 !important;
+}
+ngb-modal-backdrop.modal-backdrop.fade.show {
+   
+    opacity: 0 !important;
+    background-color: aqua !important;
+}

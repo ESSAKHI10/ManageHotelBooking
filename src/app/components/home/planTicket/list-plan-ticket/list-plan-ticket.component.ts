@@ -54,7 +54,28 @@ export class ListPlanTicketComponent implements OnInit {
       centered: true,
     });
   }
-  deleteSelectedProducts() {}
+  deleteSelectedProducts() {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete the selected products?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        if (this.selectedtikcetPlan) {
+          for (var tic of this.selectedtikcetPlan) {
+            this.ticketService.deleteplanTicket(tic);
+          }
+        }
+
+        this.selectedtikcetPlan = [];
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Products Deleted',
+          life: 3000,
+        });
+      },
+    });
+  }
   deleteTicket(ticket: PlanTicket) {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete the selected products?',

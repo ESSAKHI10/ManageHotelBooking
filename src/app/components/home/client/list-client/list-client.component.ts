@@ -60,7 +60,28 @@ export class ListClientComponent implements OnInit {
       centered: true,
     });
   }
-  deleteSelectedClient() {}
+  deleteSelectedClient() {
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to delete the selected products?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        if (this.selectedClient) {
+          for (var cl of this.selectedClient) {
+            this.clientService.deleteClient(cl);
+          }
+        }
+
+        this.selectedClient = [];
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Products Deleted',
+          life: 3000,
+        });
+      },
+    });
+  }
   deleteClient(client: Client) {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete the selected products?',

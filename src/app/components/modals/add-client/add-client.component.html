@@ -1,12 +1,21 @@
 <form [formGroup]="addClientForm">
   <div class="card text-center">
-    <div class="card-header">
-      Add new Client
-      <h5 class="card-title">Client information</h5>
-      <p class="card-text">thanks for fulffiling those fields</p>
+    <div
+      class="card-header d-flex justify-content-center"
+      style="background-color: #1ca55c"
+    >
+      <h5 class="card-title mt-2">Client informations</h5>
     </div>
+    <div
+      class="card-header d-flex justify-content-center"
+      style="background-color: #1ca55c"
+    ></div>
     <div class="card-body">
-      <div class="col-md-6">
+      <div class="d-flex justify-content-center">
+        <h5 class="card-title">thanks for fulfilling client fields</h5>
+      </div>
+
+      <div class="col-12">
         <label for="inputEmail4" class="form-label">Name</label>
         <input
           type="Name"
@@ -35,7 +44,7 @@
           >
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-12">
         <label for="inputPassword4" class="form-label">Adress</label>
         <input
           type="text"
@@ -81,19 +90,10 @@
         >
         </ng-multiselect-dropdown>
       </div>
-      <div class="col-12">
-        <label for="inputAddress2" class="form-label">Address 2</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputAddress2"
-          placeholder="Apartment, studio, or floor"
-        />
-      </div>
     </div>
-    <div class="card-footer text-muted">
+    <div class="card-footer d-flex justify-content-center">
       <div class="col-12">
-        <button type="submit" (click)="submiteClient()" class="btn btn-primary">
+        <button type="submit" (click)="submiteClient()" class="btn btn-success">
           Sign in
         </button>
       </div>
