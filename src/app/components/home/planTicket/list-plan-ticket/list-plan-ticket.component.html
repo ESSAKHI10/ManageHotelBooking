@@ -1,7 +1,7 @@
 <div class="d-flex pt-9">
   <p-toast></p-toast>
 
-  <div class="card">
+  <div class="card w-100">
     <p-toolbar styleClass="">
       <ng-template pTemplate="left">
         <button
@@ -39,7 +39,9 @@
     </p-toolbar>
 
     <p-table
-      #dt
+
+    #dt
+    cl
       [value]="tikcetPlan"
       [rows]="10"
       [paginator]="true"

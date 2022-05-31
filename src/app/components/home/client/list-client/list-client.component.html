@@ -1,5 +1,5 @@
 <div class="d-flex pt-9">
-  <div class="card">
+  <div class="card w-100">
     <p-toolbar styleClass="">
       <ng-template pTemplate="left">
         <button
@@ -37,6 +37,7 @@
     <p-table
       #dt
       [value]="Clients"
+      class="w-100s"
       [rows]="10"
       [paginator]="true"
       [globalFilterFields]="['name', 'adress']"
